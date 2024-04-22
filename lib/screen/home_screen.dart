@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/model/model_movie.dart';
 
 /* 
 TO ADD CONTENT
@@ -21,6 +22,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // movie dummy data for testing
+  List<Movie> movies = [
+    Movie.fromMap(
+      {
+        'title': 'Crash Landing On You',
+        'keyworkd': 'Love/Romantic/K-Drama',
+        'poster': 'test_movie_1.png',
+        'like': false
+      })
+  ];
+  
   @override
   void initState() {
     super.initState();
