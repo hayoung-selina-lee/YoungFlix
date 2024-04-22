@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/widget/bottom_bar.dart';
+import 'package:netflix_clone/screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,11 +32,7 @@ class _MyAppState extends State<MyApp> {
                   const NeverScrollableScrollPhysics(), // block to swipe by user's touch motion.
               children: <Widget>[
                 // put screent for displaying to children.
-                Container(
-                  child: const Center(
-                    child: Text('home'),
-                  ),
-                ),
+                const HomeScreen(),
                 Container(
                   child: const Center(
                     child: Text('search'),
