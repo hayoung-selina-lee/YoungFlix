@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/model/model_movie.dart';
+import 'package:netflix_clone/widget/box_slider.dart';
 import 'package:netflix_clone/widget/carousel_slider.dart';
+import 'package:netflix_clone/widget/circle_slider.dart';
 
 /* 
 TO ADD CONTENT
@@ -29,7 +31,31 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyworkd': 'Love/Romantic/K-Drama',
       'poster': 'test_movie_1.png',
       'like': false
-    })
+    }),
+    Movie.fromMap({
+      'title': 'Crash Landing On You',
+      'keyworkd': 'Love/Romantic/K-Drama',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': 'Crash Landing On You',
+      'keyworkd': 'Love/Romantic/K-Drama',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': 'Crash Landing On You',
+      'keyworkd': 'Love/Romantic/K-Drama',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': 'Crash Landing On You',
+      'keyworkd': 'Love/Romantic/K-Drama',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override
@@ -40,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(children: <Widget>[
-      Stack(children: <Widget>[CarouseImage(movies: movies), const TopBar()])
+      Stack(children: <Widget>[CarouseImage(movies: movies), const TopBar()]),
+      CircleSlider(movies),
+      BoxSlider(movies)
     ]);
   }
 }
