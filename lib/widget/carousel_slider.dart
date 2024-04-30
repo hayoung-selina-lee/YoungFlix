@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/model/model_movie.dart';
+import 'package:netflix_clone/screen/detail_screen.dart';
 
 // StatefulWidget : not only showing a image, but also like button and detail information.
 class CarouseImage extends StatefulWidget {
@@ -86,14 +87,27 @@ class _CarouseImageState extends State<CarouseImage> {
 
             // Information button
             Container(
-                padding: const EdgeInsets.only(right: 10),
-                child: Column(children: <Widget>[
+              padding: const EdgeInsets.only(right: 10),
+              child: Column(
+                children: <Widget>[
                   IconButton(
                     icon: const Icon(Icons.info),
-                    onPressed: () {},
+                    onPressed: () {
+                      // + Move to Detail Screen
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) =>
+                              DetailScreen(movies[_currentPage]),
+                        ),
+                      );
+                      // Move to Detail Screen +
+                    },
                   ),
                   const Text('Information', style: TextStyle(fontSize: 11))
-                ])),
+                ],
+              ),
+            ),
           ])),
 
       // Indicator
