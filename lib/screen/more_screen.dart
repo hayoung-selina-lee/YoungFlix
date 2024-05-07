@@ -42,9 +42,6 @@ class MoreScreen extends StatelessWidget {
                   if (!await launchUrl(Uri.parse(link.url))) {
                     throw Exception('Could not launch ${link.url}');
                   }
-                  if (await canLaunchUrl(Uri.parse(link.url))) {
-                    await launchUrl(Uri.parse(link.url));
-                  }
                 },
                 text: "https://github.com/leehy0321",
                 style:
