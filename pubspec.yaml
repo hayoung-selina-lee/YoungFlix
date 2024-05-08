@@ -33,6 +33,8 @@ dependencies:
   carousel_slider:
   flutter_linkify: #for using clickable link
   url_launcher: #for executing link
+  cloud_firestore: #for using firestore that is database of firebase
+  firebase_core: #for using firestore that is database of firebase
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

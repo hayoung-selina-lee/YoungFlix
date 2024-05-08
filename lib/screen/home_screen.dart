@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/model/model_movie.dart';
 import 'package:netflix_clone/widget/box_slider.dart';
@@ -24,52 +25,35 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // movie dummy data for testing
-  List<Movie> movies = [
-    Movie.fromMap({
-      'title': 'Crash Landing On You',
-      'keyworkd': 'Love/Romantic/K-Drama',
-      'poster': 'test_movie_1.png',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': 'Crash Landing On You',
-      'keyworkd': 'Love/Romantic/K-Drama',
-      'poster': 'test_movie_1.png',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': 'Crash Landing On You',
-      'keyworkd': 'Love/Romantic/K-Drama',
-      'poster': 'test_movie_1.png',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': 'Crash Landing On You',
-      'keyworkd': 'Love/Romantic/K-Drama',
-      'poster': 'test_movie_1.png',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': 'Crash Landing On You',
-      'keyworkd': 'Love/Romantic/K-Drama',
-      'poster': 'test_movie_1.png',
-      'like': false
-    }),
-  ];
-
   @override
   void initState() {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _fetchData(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('movie').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const LinearProgressIndicator(); // show loading screen
+          }
+          return _buildBody(context, snapshot.data!.docs);
+        });
+  }
+
+  Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
+    List<Movie> movies = snapshot.map((d) => Movie.fromSnapshot(d)).toList();
+
     return ListView(children: <Widget>[
       Stack(children: <Widget>[CarouseImage(movies: movies), const TopBar()]),
       CircleSlider(movies),
       BoxSlider(movies)
     ]);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _fetchData(context);
   }
 }
 

@@ -26,7 +26,7 @@ class _CarouseImageState extends State<CarouseImage> {
     super.initState();
 
     movies = widget.movies;
-    images = movies.map((m) => Image.asset('./images/${m.poster}')).toList();
+    images = movies.map((m) => Image.network(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
 
@@ -62,8 +62,26 @@ class _CarouseImageState extends State<CarouseImage> {
             Container(
                 child: Column(children: <Widget>[
               likes[_currentPage]
-                  ? IconButton(icon: const Icon(Icons.check), onPressed: () {})
-                  : IconButton(icon: const Icon(Icons.add), onPressed: () {}),
+                  ? IconButton(
+                      icon: const Icon(Icons.check),
+                      onPressed: () {
+                        setState(() {
+                          likes[_currentPage] = !likes[_currentPage];
+                          movies[_currentPage]
+                              .reference
+                              .update({'like': likes[_currentPage]});
+                        });
+                      })
+                  : IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: () {
+                        setState(() {
+                          likes[_currentPage] = !likes[_currentPage];
+                          movies[_currentPage]
+                              .reference
+                              .update({'like': likes[_currentPage]});
+                        });
+                      }),
               const Text('Liked Content', style: TextStyle(fontSize: 11))
             ])),
 
