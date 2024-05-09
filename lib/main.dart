@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screen/more_screen.dart';
+import 'package:netflix_clone/screen/search_screen.dart';
 import 'package:netflix_clone/widget/bottom_bar.dart';
 import 'package:netflix_clone/screen/home_screen.dart';
 import 'firebase_options.dart';
@@ -39,11 +40,7 @@ class _MyAppState extends State<MyApp> {
               children: <Widget>[
                 // put screent for displaying to children.
                 const HomeScreen(),
-                Container(
-                  child: const Center(
-                    child: Text('search'),
-                  ),
-                ),
+                const SearchScreen(),
                 Container(
                   child: const Center(
                     child: Text('save'),

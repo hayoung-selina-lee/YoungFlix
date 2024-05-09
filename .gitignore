@@ -55,3 +55,14 @@ macos/Flutter/Flutter-Release.xcconfig
 macos/Flutter/GeneratedPluginRegistrant.swift
 windows/flutter/generated_plugin_registrant.cc
 windows/flutter/generated_plugins.cmake
+firebase.json
+android/settings.gradle
+android/app/build.gradle
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
+linux/flutter/generated_plugins.cmake
+macos/Podfile.lock
+macos/Runner/GoogleService-Info.plist
+macos/Runner.xcodeproj/project.pbxproj
+macos/Runner.xcworkspace/contents.xcworkspacedata
