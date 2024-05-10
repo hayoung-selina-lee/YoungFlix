@@ -1,4 +1,4 @@
-# NETFLIX CLONE PROJECT 
+# FLUTTER APP PROJECT INSPIRED BY NETFLIX 
 
 ![code](https://img.shields.io/badge/Code-Dart-blue)
 ![AppUI](https://img.shields.io/badge/AppUI-Flutter-yellow)
